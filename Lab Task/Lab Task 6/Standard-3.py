@@ -41,12 +41,7 @@ class Graph():
                                                                 #key[v] takes edge cost
                 if self.graph[u][v] > 0 and mstSet[v] == False and key[v] > self.graph[u][v]:
                     key[v] = self.graph[u][v]
-               
-
-
-
                     parent[v] = u                               #parent[v] is index of node; so list of parents (nodes) is the MST
-  
         self.printMST(parent)                                   #print the list of parents, i.e. the MST                                
   
 g = Graph(5) 

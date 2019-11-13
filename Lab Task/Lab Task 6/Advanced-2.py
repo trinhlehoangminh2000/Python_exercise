@@ -71,15 +71,15 @@ class Graph():
                 break                                           
             if self.unpoppedQ[u] == end:
                 break
-
             uNode = self.unpoppedQ[u]
+
             unvisitedNodes = self.getUnvisitedNodes(uNode)
-            for v in range(len(unvisitedNodes)):
-                alt = self.dist[u] + self.weights[(uNode,unvisitedNodes[v])]
-                if alt < self.dist[v]:
-                    self.dist[v] = alt
-                    self.previous[v] = u
-            
+            for v in unvisitedNodes:
+                alt = self.dist[u] + self.weights[(uNode,v)]
+                la = self.dist[self.getIndex(v)]
+                if alt < self.dist[self.getIndex(v)]:
+                    self.dist[self.getIndex(v)] = alt
+                    self.previous[self.getIndex(v)] = u      
         shortest_path = []
         shortest_path.insert(0, end)
         u = self.getIndex(end)                                                  
