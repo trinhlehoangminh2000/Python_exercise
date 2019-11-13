@@ -1,0 +1,15 @@
+def race(n):
+	if n <= 0:
+		print("go!")
+	else:
+		print(n)
+		race(n-1)
+race(3)
+
+def stretch(n):
+						if n == 1:
+							print("stretch!")
+						else:
+							stretch(n-1)
+							print(n)
+stretch(4)

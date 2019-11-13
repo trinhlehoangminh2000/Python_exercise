@@ -1,0 +1,105 @@
+#MERGE SORT.
+#This is a complex recursion and the print statements can be used to trace execution
+
+def mergeSort(alist):
+    if len(alist)<=1:                                           #stopping condition
+        return alist
+    #print('splitting ',alist)
+    mid = len(alist)//2                                         #split list into 2
+    lefthalf = alist[:mid]                                      #left half
+    righthalf = alist[mid:]                                     #right half
+    #print('recurse with %s on left half' % lefthalf)
+    lefthalf = mergeSort(lefthalf)                              #recurse on left half, get sorted left half
+    #print('recurse with %s on right half' % righthalf)
+    righthalf = mergeSort(righthalf)                            #recurse on right half, get sorted right half
+    #print('calling merge with lefthalf %s and righthalf %s' % (lefthalf, righthalf))
+    return merge(lefthalf, righthalf)                           #merge sorted left and right halves
+
+
+def merge(lefthalf,righthalf):
+    merged_list = [0] * (len(lefthalf) + len(righthalf))
+    print(merged_list)
+    #print('lefthalf in merge is: ', lefthalf)
+    #print('righthalf in merge is: ', righthalf)
+    i=0                                                         #three counters
+    j=0
+    k=0
+    while i < len(lefthalf) and j < len(righthalf):
+        if lefthalf[i] <= righthalf[j]:                         #if element in left is less than or equal to element in right
+            merged_list[k]=lefthalf[i]                          #add it to the merged list
+            i=i+1                                               #move to the next item in the left list
+        else:
+            merged_list[k]=righthalf[j]                         #otherwise move the element in the right list
+            j=j+1                                               #to the merged list and move to the next item in the right list
+        k=k+1                                                   #move to the next item in the merged list
+        #print('merged_list after sort loop is: ', merged_list)
+        #print('lefthalf after sort loop is: ', lefthalf)
+        #print('righthalf after sort loop is: ', righthalf)
+
+    while i < len(lefthalf):                                    #if items are left over in the left half,
+        merged_list[k]=lefthalf[i]                              #add to the merged list
+        i=i+1
+        k=k+1
+
+    while j < len(righthalf):                                   #if items are left over in the right half,
+        merged_list[k]=righthalf[j]                             #add to the merged list
+        j=j+1
+        k=k+1
+
+    #print("Merging ",merged_list)
+    return merged_list
+
+alist = [6, 5, 3, 1, 8, 2, 7, 4]
+print(mergeSort(alist))
+#MERGE SORT.
+#This is a complex recursion and the print statements can be used to trace execution
+
+def mergeSort(alist):
+    if len(alist)<=1:                                           #stopping condition
+        return alist
+    #print('splitting ',alist)
+    mid = len(alist)//2                                         #split list into 2
+    lefthalf = alist[:mid]                                      #left half
+    righthalf = alist[mid:]                                     #right half
+    #print('recurse with %s on left half' % lefthalf)
+    lefthalf = mergeSort(lefthalf)                              #recurse on left half, get sorted left half
+    #print('recurse with %s on right half' % righthalf)
+    righthalf = mergeSort(righthalf)                            #recurse on right half, get sorted right half
+    #print('calling merge with lefthalf %s and righthalf %s' % (lefthalf, righthalf))
+    return merge(lefthalf, righthalf)                           #merge sorted left and right halves
+
+
+def merge(lefthalf,righthalf):
+    merged_list = [0] * (len(lefthalf) + len(righthalf))
+    #print('lefthalf in merge is: ', lefthalf)
+    #print('righthalf in merge is: ', righthalf)
+    i=0                                                         #three counters
+    j=0
+    k=0
+    while i < len(lefthalf) and j < len(righthalf):
+        if lefthalf[i] <= righthalf[j]:                         #if element in left is less than or equal to element in right
+            merged_list[k]=lefthalf[i]                          #add it to the merged list
+            i=i+1                                               #move to the next item in the left list
+        else:
+            merged_list[k]=righthalf[j]                         #otherwise move the element in the right list
+            j=j+1                                               #to the merged list and move to the next item in the right list
+        k=k+1                                                   #move to the next item in the merged list
+        #print('merged_list after sort loop is: ', merged_list)
+        #print('lefthalf after sort loop is: ', lefthalf)
+        #print('righthalf after sort loop is: ', righthalf)
+
+    while i < len(lefthalf):                                    #if items are left over in the left half,
+        merged_list[k]=lefthalf[i]                              #add to the merged list
+        i=i+1
+        k=k+1
+
+    while j < len(righthalf):                                   #if items are left over in the right half,
+        merged_list[k]=righthalf[j]                             #add to the merged list
+        j=j+1
+        k=k+1
+
+    #print("Merging ",merged_list)
+    return merged_list
+
+alist = [6, 5, 3, 1, 8, 2, 7, 4]
+print(mergeSort(alist))

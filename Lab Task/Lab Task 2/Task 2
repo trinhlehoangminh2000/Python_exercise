@@ -1,0 +1,15 @@
+def bubbleSort(a):
+    swap = True
+    while swap == True:
+        swap = False
+        for i in range(0,len(a)-1,1):
+            if a[i] > a[i+1]:
+                swap = True
+                c = a[i]
+                a[i]= a[i+1]
+                a[i+1] = c
+    return a
+
+
+arr = [1,5,4,2, 4,9,2,34,6,7,3,2]
+print(bubbleSort(arr))

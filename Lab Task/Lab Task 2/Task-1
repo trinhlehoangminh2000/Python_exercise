@@ -1,0 +1,19 @@
+arr = ["a","b","a"]
+state = True
+i= 0
+while state :
+    if (arr[i] == arr[len(arr)-i-1]):
+        state = True
+        i += 1
+        if (len(arr)%2 == 0):
+            if (i == (len(arr)-1)) :
+                print("yes")
+                break
+        else:
+            if (i == ((len(arr)-1)/2)):
+                print ("yes")
+                break
+    else:
+        state = False
+else:
+    print ("No")

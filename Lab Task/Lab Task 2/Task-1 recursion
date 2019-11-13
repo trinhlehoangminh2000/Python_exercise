@@ -1,0 +1,19 @@
+arr = [1,1,2,2,1,1]
+mylist = arr
+i = 0
+def compare(arr) :
+    if len(arr) <= 1:
+        return True
+    else:
+        if mylist[i] == mylist[len(mylist)-1]:
+            print(mylist[i])
+            print(mylist[len(mylist)])
+            del mylist[i]
+            del mylist[len(mylist)-1]
+            compare(mylist)
+        else :
+            return False
+if compare(arr) :
+    print("yes")
+else:
+    print("No")
