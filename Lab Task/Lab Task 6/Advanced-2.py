@@ -72,10 +72,10 @@ class Graph():
             if self.unpoppedQ[u] == end:
                 break
             uNode = self.unpoppedQ[u]
-            self.Q.pop(self.getPopPosition(uNode))
-            unvisitedNodes = self.getUnvisitedNodes(uNode)
+            self.Q.pop(self.getPopPosition(uNode))                  #Remove uNode from the list Q
+            unvisitedNodes = self.getUnvisitedNodes(uNode)          #Get all the unvisited nodes from u
             for vNode in unvisitedNodes:
-                alt = self.dist[u] + self.weights[(uNode,vNode)]
+                alt = self.dist[u] + self.weights[(uNode,vNode)]      
                 if alt < self.dist[self.getIndex(vNode)]:
                     self.dist[self.getIndex(vNode)] = alt
                     self.previous[self.getIndex(vNode)] = uNode
