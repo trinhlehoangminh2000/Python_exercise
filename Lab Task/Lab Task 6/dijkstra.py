@@ -71,24 +71,58 @@ class Graph():
                 break                                           
             if self.unpoppedQ[u] == end:
                 break
+            
             uNode = self.unpoppedQ[u]
-            self.Q.pop(self.getPopPosition(uNode))
-            unvisitedNodes = self.getUnvisitedNodes(uNode)
-            for vNode in unvisitedNodes:
-                alt = self.dist[u] + self.weights[(uNode,vNode)]
-                if alt < self.dist[self.getIndex(vNode)]:
-                    self.dist[self.getIndex(vNode)] = alt
-                    self.previous[self.getIndex(vNode)] = uNode
-                          
+            self.Q.pop(self.getPopPosition(uNode)) # delete the node from list Q 
+            neighbours = self.edges[uNode] # find all neighbours of u
+            for v in range (len(neighbours)):
+                vNode = neighbours[v]
+                alt = self.dist[u] + self.weights[uNode,vNode]
+                vIndex = self.getIndex(vNode) # get the index of v for dist list
+                if (alt < self.dist[vIndex]):
+                    self.dist[vIndex] = alt
+                    self.previous[vIndex] = uNode
+
+        ### COMPLETE CODE HERE ###
+
+            
         shortest_path = []
         shortest_path.insert(0, end)
         u = self.getIndex(end)                                                  
         while self.previous[u] != None:
             shortest_path.insert(0, self.previous[u])                           
             u = self.getIndex(self.previous[u])
-        return shortest_path
+        result = str(shortest_path) + " Distance : " + str(self.dist[self.getIndex(end)])
+        return result
+        
 
 
+
+"""
+edges = [
+    ('O', 'A', 2),
+    ('O', 'B', 5),
+    ('O', 'C', 4),
+    ('A', 'B', 2),
+    ('A', 'D', 7),
+    ('A', 'F', 12),
+    ('B', 'C', 1),
+    ('B', 'D', 4),
+    ('B', 'E', 3),
+    ('C', 'E', 4),
+    ('D', 'E', 1),
+    ('D', 'T', 9),
+    ('E', 'T', 9),
+    ('F', 'T', 1),
+]
+edges = [
+    ('O', 'A', 2),
+    ('O', 'B', 2),
+    ('A', 'C', 4),
+    ('B', 'C', 4),
+    ('E', 'F', 2)
+]"""
+    
 graph = Graph(8)
 
 
