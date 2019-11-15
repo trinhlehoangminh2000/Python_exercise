@@ -95,7 +95,8 @@ def main():
         res = insertionSort(Hundred_list)                                                                                 
     delta = (datetime.now() - start)/10
     print("Insertion sort took:     %s" %delta.total_seconds())
-
+    print("Big O notation: Polynomial O(n^k)\n")
+    
     #Calculating the time taken for bubble sort
     start = datetime.now()
     for i in range(10):  
@@ -103,7 +104,8 @@ def main():
         res = bubbleSort(Hundred_list)                                                                                 
     delta = (datetime.now() - start)/10
     print("Bubble sort took:        %s" %delta.total_seconds())
-
+    print("Big O notation: Polynomial O(n^k)\n")
+    
     #Calculating the time taken for merge sort
     start = datetime.now()
     for i in range(10):
@@ -111,6 +113,7 @@ def main():
         res = mergeSort(Hundred_list)                                                                                    
     delta = (datetime.now() - start)/10
     print("Merge sort took:         %s" %delta.total_seconds())
+    print("Big O notation: Log linear O(n log n)\n")    
 
     #Calculating the time taken for quick sort
     start = datetime.now()
@@ -119,6 +122,7 @@ def main():
         res = quickSort(Hundred_list)                                                                                    
     delta = (datetime.now() - start)/10
     print("Quick sort took:         %s" %delta.total_seconds())
+    print("Big O notation: Log linear O(n log n)\n")
 
     #Calculating the time taken for selection sort
     start = datetime.now()
@@ -127,7 +131,7 @@ def main():
         res = selectionSort(Hundred_list)                                                                                    
     delta = (datetime.now() - start)/10
     print("Selection sort took:     %s" %delta.total_seconds())
-
+    print("Big O notation: Polynomial O(n^k)\n")
 
 
 if __name__ == '__main__':
