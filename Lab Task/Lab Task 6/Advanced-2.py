@@ -86,7 +86,7 @@ class Graph():
         while self.previous[u] != None:
             shortest_path.insert(0, self.previous[u])                           
             u = self.getIndex(self.previous[u])
-        return shortest_path
+        return '('+str(shortest_path)+', '+str(self.dist[self.getIndex(end)])+')'
 
 
 graph = Graph(8)
